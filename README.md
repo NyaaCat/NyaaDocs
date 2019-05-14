@@ -1,6 +1,5 @@
 # Nyaa Docs
-此处收集 NyaaCat 团队所开发的各种工具的文档。尽量使用中文撰写，力求表达到位易于理解。建议同时撰写英文版本以方便海外
-玩家浏览查阅。
+此处收集 NyaaCat 团队所开发的各种工具的文档。尽量使用中文撰写，力求表达到位易于理解。建议同时撰写英文版本以方便海外玩家浏览查阅。
 # 活跃项目一览
 - [核心][LanguageUtils](https://github.com/NyaaCat/LanguageUtils)
 用于服务器端的本地化库，上游 [MascusJeoraly/LanguageUtils](https://github.com/MascusJeoraly/LanguageUtils) 似已不再维护，故继续开发。
@@ -38,4 +37,39 @@
 - [已停止]ce (CustomEnchantments)
 - [已停止]Turrets
 - [已停止]Lift
+
+# 开发环境搭建
+由于插件依赖复杂，为方便在开发环境对多个插件进行调试修改，建议使用`Gradle`的子项目功能。在一个空目录中执行以下命令，可以一次性批量克隆所有项目。
+
+```setup.sh
+#!/bin/bash
+
+cat > settings.gradle << EOF
+include 'LanguageUtils'
+include 'NyaaCore'
+include 'LockettePro'
+include 'NyaaUtils'
+
+gradle.ext {
+    useLocalDependencies = true
+}
+EOF
+
+echo 'org.gradle.daemon=false' > gradle.properties
+
+git clone 'git@github.com:NyaaCat/LanguageUtils.git'
+pushd LanguageUtils; git checkout 1.14; popd
+git clone 'git@github.com:NyaaCat/NyaaCore.git'
+pushd NyaaCore; git checkout 1.14; popd
+git clone 'git@github.com:NyaaCat/LockettePro.git'
+# Lockette use master branch
+git clone 'git@github.com:NyaaCat/NyaaUtils.git'
+pushd NyaaUtils; git checkout 1.14; popd
+
+gradle wrapper --gradle-version 5.4.1
+```
+
+然后在`IntellijIDEA`中导入(Import)`settings.gradle`文件即可。建议选择“using explicit module groups”，并取消选择“create seperate module per source set”。所有项目都会自动依赖本地代码而不是CI仓库。如果你没有对仓库的写权限，你需要手动替换为HTTPS的仓库地址。目前只有部分项目支持这种依赖配置，其他项目在完成迁移后会添加到这个列表中。
+
+由于CI仍然使用maven仓库作为编译依赖，为避免CI失败，请务必先上传(git push)被依赖的项目的变动，再上传下游项目的变动。
 
