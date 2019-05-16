@@ -8,7 +8,7 @@
 - [核心][NyaaUtils](https://github.com/NyaaCat/NyaaUtils)
 提供大量小工具和游戏机制。依赖 `WorldEdit`，`Essentials`，`NyaaCore`，`LangUtils`。可选依赖 `LockettePro`，`HamsterEcoHelper`。
 - [经济][PlayTimeTracker](https://github.com/NyaaCat/PlayTimeTracker) 根据玩家在线时间给予奖励或惩罚。可选依赖 `Essentials`。
-- [经济][NyaaPlayerCoser](https://github.com/NyaaCat/NyaaPlayerCoser) 类似 [Shopkeepers](https://dev.bukkit.org/projects/shopkeepers) 的 NPC 交易插件。依赖 `NyaaCore`，`ProtocolLib`。可选依赖 `HamsterEcoHelper`。
+- [经济][NyaaPlayerCoser](https://github.com/NyaaCat/NyaaPlayerCoser) 类似 [Shopkeepers](https://dev.bukkit.org/projects/shopkeepers) 的 NPC 交易插件。依赖 NMS，`NyaaCore`，`ProtocolLib`。可选依赖 `HamsterEcoHelper`。
 - [经济][HamsterEcoHelper](https://github.com/NyaaCat/HamsterEcoHelper) 天喵商城。提供牌子商店/世界商店/拍卖收购等服务。依赖 `Vault`，`NyaaCore`，`LangUtils`。可选依赖 `Essentials`，`LockettePro`。
 - [经济][NyaaBank](https://github.com/NyaaCat/NyaaBank) 银行插件，允许玩家存款/借贷/收取存款利息等。依赖`Vault`，`NyaaUtils`。
 - [经济][CapCat](https://github.com/NyaaCat/capcat) 资本化插件。依赖 `NyaaCore`。可选依赖 `HamsterEcoHelper`。
