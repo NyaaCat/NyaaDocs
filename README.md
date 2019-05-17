@@ -44,28 +44,32 @@
 ```setup.sh
 #!/bin/bash
 
-cat > settings.gradle << EOF
-include 'LanguageUtils'
-include 'NyaaCore'
-include 'LockettePro'
-include 'NyaaUtils'
-
-gradle.ext {
-    useLocalDependencies = true
+# gitclone <repo_name> [branch]
+gitclone() {
+    git clone "git@github.com:NyaaCat/$1.git"
+    echo "include '$1'" >> settings.gradle
+    if [ "$2" != "" ]; then
+        pushd "$1"
+        git checkout "$2"
+        popd
+    fi
 }
-EOF
 
+gitclone LanguageUtils 1.14
+gitclone NyaaCore 1.14
+gitclone LockettePro
+gitclone NyaaUtils 1.14
+gitclone HamsterEcoHelper
+gitclone NyaaBank
+gitclone CapCat
+gitclone Ourtown
+gitclone Yasui
+gitclone IXP
+gitclone NyaaPlayerCoser
+gitclone PlayTimeTracker
+
+echo 'gradle.ext { useLocalDependencies = true }' >> settings.gradle
 echo 'org.gradle.daemon=false' > gradle.properties
-
-git clone 'git@github.com:NyaaCat/LanguageUtils.git'
-pushd LanguageUtils; git checkout 1.14; popd
-git clone 'git@github.com:NyaaCat/NyaaCore.git'
-pushd NyaaCore; git checkout 1.14; popd
-git clone 'git@github.com:NyaaCat/LockettePro.git'
-# Lockette use master branch
-git clone 'git@github.com:NyaaCat/NyaaUtils.git'
-pushd NyaaUtils; git checkout 1.14; popd
-
 gradle wrapper --gradle-version 5.4.1
 ```
 
