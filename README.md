@@ -1,5 +1,12 @@
 # Nyaa Docs
 此处收集 NyaaCat 团队所开发的各种工具的文档。尽量使用中文撰写，力求表达到位易于理解。建议同时撰写英文版本以方便海外玩家浏览查阅。
+# 发布
+Minecraft 版本 1.14 及更新版本使用以下发布渠道：
+- 持续集成服务器 [https://ci.nyaacat.com/](https://ci.nyaacat.com/)
+- Maven 仓库 [https://ci.nyaacat.com/maven/](https://ci.nyaacat.com/maven/)
+- Javadoc [https://ci.nyaacat.com/javadocs/](https://ci.nyaacat.com/javadocs/)
+
+部分旧项目使用 TravisCI, 并使用 [NyaaCentral](https://github.com/NyaaCat/NyaaCentral), Github Releases 或是特定分支作为 Maven/Javadoc 服务，这些旧发布渠道会逐渐停用并删除。
 # 活跃项目一览
 - [核心][LanguageUtils](https://github.com/NyaaCat/LanguageUtils)
 用于服务器端的本地化库，上游 [MascusJeoraly/LanguageUtils](https://github.com/MascusJeoraly/LanguageUtils) 似已不再维护，故继续开发。
