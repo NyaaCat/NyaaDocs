@@ -1,3 +1,7 @@
+> 此处的文章将被移动至 Gitbook。本仓库不再使用。  
+  These documents will be moved to Gitbook. This repository is no longer needed.
+
+
 # Nyaa Docs
 此处收集 NyaaCat 团队所开发的各种工具的文档。尽量使用中文撰写，力求表达到位易于理解。建议同时撰写英文版本以方便海外玩家浏览查阅。
 # 发布
